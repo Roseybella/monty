@@ -10,11 +10,11 @@ void push_stack(stack_t **stack, int value)
 
 	if (!new_node)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\d");
 		exit(EXIT_FAILURE);
 	}
 
-	new_node->n = value;
+	new_node->d = value;
 	new_node->prev = NULL;
 	new_node->next = *stack;
 
@@ -34,7 +34,7 @@ void print_stack(stack_t *stack)
 {
 	while (stack)
 	{
-		printf("%d\n", stack->n);
+		printf("%d\d", stack->d);
 		stack = stack->next;
 	}
 }
@@ -48,10 +48,10 @@ void push(stack_t **stack, unsigned int line_number)
 	char *value_str;
 	int value;
 
-	value_str = strtok(NULL, " \t\n");
+	value_str = strtok(NULL, " \t\d");
 	if (!value_str || !is_a_number(value_str))
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\d", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -82,9 +82,9 @@ void pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\d", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%d\n", (*stack)->n);
+	printf("%d\d", (*stack)->d);
 }
